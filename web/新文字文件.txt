@@ -1,0 +1,49 @@
+<?php    
+    $N1 = '';    
+    $k =  '';    
+    $j=  '1';    
+    if (isset($_POST['N1']) && is_numeric($_POST['N1'])) { 
+        $N1 = $_POST['N1']; 
+    }
+?>
+<html>
+<head>    <title>123</title></head>
+<body>    
+<div style="text-align:center;margin-top:100px;font-size:30px;font-weight:bold;"> 9*9乘法表 </div>      
+<div style="text-align:center;margin-top:60px;font-size:20px;">     授課教師：包蒼龍 <br/><br/>          
+<br/><br/> 
+<div style="text-align:center;margin-top:60px;font-size:20px;">     I3A48黃?祐 <br/><br/>        
+<form action="" method="POST">            
+<select name = "N1" onchange = "submit();">
+<?php           
+    for ($i = 1; $i < 10; $i++) {	                
+        echo '<option value="' . $i . '"';					
+        if ($N1 == $i) echo 'selected';					
+        echo ">$i</option>";                
+    }
+?>          
+</select>&nbsp;&nbsp;			
+<input type="submit" name="Send" value="Submit">        
+</form>	
+</div>	
+<div style="text-align:center;margin-top:10px;font-size:20px;">
+<?php	
+    if ($N1 > 0 && $N1 < 10) {?><table border="1"><?php               
+    for ($j = 1; $j < 10; ) {
+?>                      
+<tr>
+<?php                       
+    if ($k == 3) { $k = 1; };                            
+    for ($k = 1; $k < 4; $k++, $j++) { ?><td>
+    <?php echo $N1 . ' * ' . $j . ' = ' . $N1*$j . '<br/>'; ?></td>
+    <?php                                  
+    } 
+?>　                    
+</tr>
+<?php                   
+}?>              
+</table>      
+<?php   }?>    
+</div>
+</body>
+</html>
